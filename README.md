@@ -26,7 +26,7 @@ A Django-based Point of Interest (POI) management system with support for import
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd django-poi-manager
+cd poi-manager
 ```
 
 2. Install dependencies:
