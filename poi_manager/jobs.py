@@ -2,7 +2,6 @@ import logging
 import os
 from django.db import transaction
 from django.contrib.gis.geos import Point
-import django_rq
 
 from poi_manager.models import PointOfInterest, ImportBatch
 from poi_manager.parsers.csv_parser import CSVParser
@@ -108,46 +107,3 @@ def import_poi_file_async(batch_id, file_path, options=None):
         raise
 
 
-def cleanup_old_imports(days=30):
-    from datetime import timedelta
-    from django.utils import timezone
-
-    cutoff_date = timezone.now() - timedelta(days=days)
-
-    old_batches = ImportBatch.objects.filter(started_at__lt=cutoff_date)
-
-    deleted_count = 0
-    for batch in old_batches:
-        poi_count = batch.pois.count()
-        batch.delete()  # Cascades to POIs
-        deleted_count += poi_count
-
-    logger.info(f"Cleanup: Deleted {len(old_batches)} batches and {deleted_count} POIs")
-
-    return {"batches_deleted": len(old_batches), "pois_deleted": deleted_count}
-
-
-def calculate_statistics():
-    from django.db.models import Count, Avg
-    from django.core.cache import cache
-
-    stats = {
-        "total_pois": PointOfInterest.objects.count(),
-        "categories": list(
-            PointOfInterest.objects.values("category")
-            .annotate(count=Count("id"))
-            .order_by("-count")[:10]
-        ),
-        "avg_rating": PointOfInterest.objects.aggregate(avg=Avg("avg_rating"))["avg"],
-        "recent_imports": list(
-            ImportBatch.objects.filter(status="completed")
-            .values("file_name", "records_processed", "completed_at")
-            .order_by("-completed_at")[:5]
-        ),
-    }
-
-    cache.set("poi_statistics", stats, 3600)
-
-    logger.info("Statistics calculated and cached")
-
-    return stats

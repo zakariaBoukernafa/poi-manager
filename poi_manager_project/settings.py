@@ -16,7 +16,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 if os.path.exists(BASE_DIR / '.env'):
-    from pathlib import Path
     env_path = BASE_DIR / '.env'
     with open(env_path) as f:
         for line in f:
