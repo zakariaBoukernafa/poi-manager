@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RECORDS>
+  <DATA_RECORD>
+    <pid>146612179</pid>
+    <pname>Central Park</pname>
+    <pcategory>park</pcategory>
+    <platitude>40.785091</platitude>
+    <plongitude>-73.968285</plongitude>
+    <pratings>4,5,4,5,3,4,5,4,4,5</pratings>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <pid>502332310</pid>
+    <pname>Times Square</pname>
+    <pcategory>landmark</pcategory>
+    <platitude>40.758896</platitude>
+    <plongitude>-73.985130</plongitude>
+    <pratings>4,3,4,5,4</pratings>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <pid>77034997</pid>
+    <pname>Joe's Pizza</pname>
+    <pcategory>restaurant</pcategory>
+    <platitude>40.730520</platitude>
+    <plongitude>-74.002450</plongitude>
+    <pratings>5,5,4,5,5,4,5</pratings>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <pid>534853645</pid>
+    <pname>Empire State Building</pname>
+    <pcategory>landmark</pcategory>
+    <platitude>40.748817</platitude>
+    <plongitude>-73.985428</plongitude>
+    <pratings>5,4,5,5,4,5,4</pratings>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <pid>612345678</pid>
+    <pname>Brooklyn Bridge</pname>
+    <pcategory>bridge</pcategory>
+    <platitude>40.706086</platitude>
+    <plongitude>-73.996865</plongitude>
+    <pratings>4,5,4,5,4,5</pratings>
+  </DATA_RECORD>
+</RECORDS>

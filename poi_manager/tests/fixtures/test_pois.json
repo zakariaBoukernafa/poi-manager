@@ -1,0 +1,57 @@
+[
+  {
+    "id": "1806848972",
+    "name": "Central Park",
+    "category": "park",
+    "description": "A large public park in New York City",
+    "coordinates": {
+      "latitude": 40.785091,
+      "longitude": -73.968285
+    },
+    "ratings": [4, 5, 4, 5, 3, 4, 5, 4, 4, 5]
+  },
+  {
+    "id": "428667258",
+    "name": "Times Square",
+    "category": "landmark",
+    "description": "Commercial intersection and tourist destination",
+    "coordinates": {
+      "latitude": 40.758896,
+      "longitude": -73.985130
+    },
+    "ratings": [4, 3, 4, 5, 4]
+  },
+  {
+    "id": "813164026",
+    "name": "Joe's Pizza",
+    "category": "restaurant",
+    "description": "Famous New York pizza place",
+    "coordinates": {
+      "latitude": 40.730520,
+      "longitude": -74.002450
+    },
+    "ratings": [5, 5, 4, 5, 5, 4, 5]
+  },
+  {
+    "id": "502595764",
+    "name": "Empire State Building",
+    "category": "landmark",
+    "description": "Iconic Art Deco skyscraper",
+    "coordinates": {
+      "latitude": 40.748817,
+      "longitude": -73.985428
+    },
+    "ratings": [5, 4, 5, 5, 4, 5, 4]
+  },
+  {
+    "id": "612345678",
+    "name": "Brooklyn Bridge",
+    "category": "bridge",
+    "description": "Historic suspension bridge",
+    "coordinates": {
+      "latitude": 40.706086,
+      "longitude": -73.996865
+    },
+    "ratings": [4, 5, 4, 5, 4, 5]
+  }
+]

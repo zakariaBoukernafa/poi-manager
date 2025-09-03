@@ -1,0 +1,3 @@
+"""
+POI Manager test suite.
+"""

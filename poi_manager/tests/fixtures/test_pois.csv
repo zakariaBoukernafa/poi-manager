@@ -1,0 +1,6 @@
+poi_id,poi_name,poi_category,poi_latitude,poi_longitude,poi_ratings
+1806848972,Central Park,park,40.785091,-73.968285,"{4.5,4.2,4.8,4.0,3.9}"
+428667258,Times Square,landmark,40.758896,-73.985130,"{4.2,3.8,4.5,4.1}"
+813164026,Joe's Pizza,restaurant,40.730520,-74.002450,"{4.8,4.9,5.0,4.7,4.6}"
+502595764,Empire State Building,landmark,40.748817,-73.985428,"{4.7,4.5,4.8,4.9}"
+612345678,Brooklyn Bridge,bridge,40.706086,-73.996865,"{4.6,4.4,4.7,4.5,4.8}"
