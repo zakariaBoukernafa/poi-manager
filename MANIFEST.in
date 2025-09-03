@@ -1,0 +1,9 @@
+include README.md
+include LICENSE
+include requirements.txt
+recursive-include poi_manager/templates *
+recursive-include poi_manager/static *
+recursive-include poi_manager/migrations *
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
