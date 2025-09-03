@@ -116,6 +116,9 @@ celerybeat.pid
 .dmypy.json
 dmypy.json
 
+# uv
+uv.lock
+
 # Data files
 sample_data/*.csv
 sample_data/*.json

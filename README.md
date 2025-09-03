@@ -29,7 +29,22 @@ git clone <repository-url>
 cd poi-manager
 ```
 
-2. Install dependencies:
+2. Install dependencies using uv (recommended):
+```bash
+# Install uv if you haven't already
+# macOS/Linux:
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# or with Homebrew:
+brew install uv
+
+# Install project dependencies
+uv sync
+
+# Or install with development dependencies
+uv sync --extra dev
+```
+
+Alternatively, you can still use pip:
 ```bash
 pip install -r requirements.txt
 ```
@@ -48,17 +63,17 @@ psql -d poi_manager -c "CREATE EXTENSION postgis;"
 
 5. Run migrations:
 ```bash
-python manage.py migrate
+uv run python manage.py migrate
 ```
 
 6. Create a superuser:
 ```bash
-python manage.py createsuperuser
+uv run python manage.py createsuperuser
 ```
 
 7. Run the development server:
 ```bash
-python manage.py runserver
+uv run python manage.py runserver
 ```
 
 ### Docker Setup
