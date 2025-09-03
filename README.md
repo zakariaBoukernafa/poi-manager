@@ -92,8 +92,13 @@ The application will be available at http://localhost:8000
 Use the management command to import POI data from files:
 
 ```bash
-python manage.py import_pois /path/to/data.csv
-python manage.py import_pois /path/to/data.json /path/to/data.xml
+uv run python manage.py import_pois /path/to/data.csv
+uv run python manage.py import_pois /path/to/data.json /path/to/data.xml
+```
+
+Or if using Docker:
+```bash
+docker exec poi_manager_web python manage.py import_pois sample_data/pois.json
 ```
 
 ### Admin Interface
