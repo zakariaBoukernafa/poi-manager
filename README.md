@@ -78,13 +78,20 @@ uv run python manage.py runserver
 
 ### Docker Setup
 
+- Use Compose (not a standalone `docker run`) so PostGIS, Redis, the web app, and the RQ worker all start together.
+
 1. Build and run with Docker Compose:
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
-The application will be available at http://localhost:8000
+This brings up:
+- `db`: PostgreSQL with PostGIS
+- `redis`: Redis
+- `web`: Django app (applies migrations and serves on 8000)
+- `worker`: RQ worker for background jobs
 
+The application will be available at http://localhost:8000
 ## Usage
 
 ### Importing POI Data
@@ -100,6 +107,14 @@ Or if using Docker:
 ```bash
 docker exec poi_manager_web python manage.py import_pois sample_data/pois.json
 ```
+
+Asynchronous import with RQ (when running via Compose):
+```bash
+# Enqueue a background job per file
+docker exec poi_manager_web python manage.py import_pois --async sample_data/pois.json
+```
+- The `worker` service consumes the queue.
+- Django Admin includes an action to retry failed imports; queued jobs are visible via RQ logging.
 
 ### Admin Interface
 
@@ -156,6 +171,7 @@ django-poi-manager/
 │   └── migrations/       # Database migrations
 ├── poi_manager_project/   # Django project settings
 ├── docker-compose.yml    # Docker configuration
+│   ├── services: db (PostGIS), redis, web (Django), worker (RQ)
 ├── requirements.txt      # Python dependencies
 └── manage.py            # Django management script
 ```

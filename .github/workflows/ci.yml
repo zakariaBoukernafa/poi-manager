@@ -91,12 +91,7 @@ jobs:
     - name: Build Docker image
       run: |
         docker compose -f docker-compose.ci.yml build
-    
-    - name: Test Docker compose
+
+    - name: CI smoke with docker compose
       run: |
-        docker compose -f docker-compose.ci.yml up -d
-        sleep 30
-        docker compose -f docker-compose.ci.yml ps
-        docker compose -f docker-compose.ci.yml exec -T web python manage.py migrate
-        docker compose -f docker-compose.ci.yml exec -T web python manage.py check
-        docker compose -f docker-compose.ci.yml down
+        bash scripts/ci_smoke.sh
