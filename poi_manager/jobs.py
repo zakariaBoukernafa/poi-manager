@@ -37,6 +37,7 @@ def import_poi_file_async(batch_id, file_path, options=None):
 
         processed = 0
         failed = 0
+        skipped = 0
 
         for batch_num, batch_data in enumerate(parser.parse(), 1):
             try:
@@ -65,13 +66,17 @@ def import_poi_file_async(batch_id, file_path, options=None):
                             batch.add_error(str(e), record)
 
                     if pois:
+                        attempted = len(pois)
                         created = PointOfInterest.objects.bulk_create(
                             pois, ignore_conflicts=True, batch_size=500
                         )
-                        processed += len(created)
+                        created_count = len(created)
+                        processed += created_count
+                        skipped += max(attempted - created_count, 0)
 
                     batch.records_processed = processed
                     batch.records_failed = failed
+                    batch.records_skipped = skipped
                     batch.save()
 
                     logger.info(f"Batch {batch_num}: Processed {len(pois)} records")
@@ -105,5 +110,4 @@ def import_poi_file_async(batch_id, file_path, options=None):
             batch.save()
 
         raise
-
 
